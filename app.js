@@ -4,7 +4,6 @@ const cors = require("cors");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const mongoose = require("mongoose");
-require("dotenv").config();
 
 // Initialize express app
 const app = express();
@@ -22,11 +21,6 @@ app.use(express.json());
 // Set up routes
 app.use("/api", require("./routes"));
 
-// Set up error handling
-app.use(function (err, req, res, next) {
-  console.error(err);
-  res.status(500).send("Something broke!");
-});
 
 // Set up port
 const PORT = process.env.PORT || 8000;

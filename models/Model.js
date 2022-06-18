@@ -1,16 +1,13 @@
+// schema for smart link shortener service
 const mongoose = require("mongoose");
-const newSchema = mongoose.Schema({
-  slug: {
-    type: String,
-    required: true,
-  },
+const Schema = mongoose.Schema;
 
-  web: String,
-
-  android: String,
-
-  ios: String,
+const modelSchema = new Schema({
+    slug: { type: String, required: true },
+    url: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
 });
 
-const Model = mongoose.model("Model", newSchema);
+const Model = mongoose.model("Model", modelSchema);
 module.exports = Model;
